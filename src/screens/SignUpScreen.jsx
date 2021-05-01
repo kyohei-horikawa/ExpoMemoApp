@@ -5,18 +5,38 @@ import {
 
 import Button from '../components/Button';
 
-export default function SignUpScreen() {
+export default function SignUpScreen(props) {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
         <Text style={styles.title}>Sign Up</Text>
         <TextInput style={styles.input} value="email" />
         <TextInput style={styles.input} value="password" />
-        <Button label="Submit" />
+        <Button
+          label="Submit"
+          onPress={() => {
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'MemoList' }],
+            });
+          }}
+        />
         <View style={styles.footerContainer}>
           <Text style={styles.footerText}>Already Registored?</Text>
           <TouchableOpacity>
-            <Text style={styles.footerLink}>Log In!</Text>
+            <Text
+              style={styles.footerLink}
+              onPress={() => {
+                navigation.reset({
+                  index: 0,
+                  routes: [{ name: 'LogIn' }],
+                });
+              }}
+            >
+              Log In!
+
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

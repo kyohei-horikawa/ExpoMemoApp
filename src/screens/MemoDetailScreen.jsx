@@ -4,7 +4,8 @@ import { View, ScrollView, StyleSheet, Text } from 'react-native';
 
 import CircleButton from '../components/CircleButton';
 
-export default function MemoDetailScreen() {
+export default function MemoDetailScreen(props) {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
@@ -14,7 +15,13 @@ export default function MemoDetailScreen() {
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>これは本文です．</Text>
       </ScrollView>
-      <CircleButton style={{ top: 60, bottom: 'auto' }} name="edit-2" />
+      <CircleButton
+        style={{ top: 60, bottom: 'auto' }}
+        name="edit-2"
+        onPress={() => {
+          navigation.navigate('MemoEdit');
+        }}
+      />
     </View>
   );
 }
