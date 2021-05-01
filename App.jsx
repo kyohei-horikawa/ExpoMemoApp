@@ -1,11 +1,34 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import MemoListScreen from './src/screens/MemoListScreen';
-// import MemoEditScreen from './src/screens/MemoEditScreen';
-// import LogInScreen from './src/screens/LogInScreen';
+import MemoEditScreen from './src/screens/MemoEditScreen';
+import LogInScreen from './src/screens/LogInScreen';
+import MemoCreateScreen from './src/screens/MemoCreateScreen';
+import SignUpScreen from './src/screens/SignUpScreen';
+import MemoDetailScreen from './src/screens/MemoDetailScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return <MemoListScreen />;
-  // return <LogInScreen />;
-  // return <MemoEditScreen />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="MemoDetail"
+        screenOptions={{
+          headerStyle: { backgroundColor: '#467FD3' },
+          headerTitleStyle: { color: '#ffffff' },
+          headerTitle: 'Memo App',
+        }}
+      >
+        <Stack.Screen name="MemoList" component={MemoListScreen} />
+        <Stack.Screen name="MemoEdit" component={MemoEditScreen} />
+        <Stack.Screen name="LogIn" component={LogInScreen} />
+        <Stack.Screen name="MemoCreate" component={MemoCreateScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen name="MemoDetail" component={MemoDetailScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

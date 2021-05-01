@@ -2,13 +2,11 @@ import React from 'react';
 // eslint-disable-next-line
 import { View, ScrollView, StyleSheet, Text } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 
 export default function MemoDetailScreen() {
   return (
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
         <Text style={styles.memoDate}>2020/12/24 10:00</Text>
@@ -16,7 +14,7 @@ export default function MemoDetailScreen() {
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>これは本文です．</Text>
       </ScrollView>
-      <CircleButton style={{ top: 160, bottom: 'auto' }} name="edit-2" />
+      <CircleButton style={{ top: 60, bottom: 'auto' }} name="edit-2" />
     </View>
   );
 }
