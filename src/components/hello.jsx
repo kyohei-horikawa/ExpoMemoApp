@@ -1,19 +1,22 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 
-class hello extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <View>
-        <Text> hello </Text>
-      </View>
-    );
-  }
+function Hello() {
+  return (
+    <View>
+      <Text style={styles.text}>hello</Text>
+    </View>
+  );
 }
 
-export default hello;
+const styles = StyleSheet.create({
+  text: {
+    color: '#ffffff',
+    backgroundColor: 'blue',
+    fontSize: 40,
+    fontWeight: 'bold',
+    padding: 16,
+  },
+});
+
+export default Hello;
