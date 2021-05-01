@@ -1,13 +1,19 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { string } from 'prop-types';
 
-function Hello() {
+function Hello(props) {
+  const { children } = props;
   return (
     <View>
-      <Text style={styles.text}>hello</Text>
+      <Text style={styles.text}>{`Hello ${children}`}</Text>
     </View>
   );
 }
+
+Hello.propTypes = {
+  children: string.isRequired,
+};
 
 const styles = StyleSheet.create({
   text: {
